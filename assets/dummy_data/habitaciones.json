@@ -1,0 +1,26 @@
+ [
+	{
+		"id" : 1,
+		"numeroHabitacion" : 507,
+		"tipo" : "Penhouse",
+		"precioPorNoche" : 100.00,
+		"descripcion" : "La mejor de la Ciudad",
+		"estado" : "Disponible"
+	},
+	{
+		"id" : 2,
+		"numeroHabitacion" : 259,
+		"tipo" : "Normal",
+		"precioPorNoche" : 50.00,
+		"descripcion" : "Sencilla 2 camas",
+		"estado" : "No Disponible"
+	},
+	{
+		"id" : 3,
+		"numeroHabitacion" : 123,
+		"tipo" : "Normal",
+		"precioPorNoche" : 45.00,
+		"descripcion" : "Sencilla 1 cama",
+		"estado" : "Disponible"
+	}
+]

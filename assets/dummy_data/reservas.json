@@ -1,0 +1,33 @@
+{
+"Reservas": [
+	{
+		"id" : 1,
+		"fechaDeEntrada" : "2024-06-11",
+		"fechaDeSalida" : "2024-06-15",
+		"totalDeNoches" : 4,
+		"estadoDeReserva" : "Pagado",
+		"precioTotal" : 249.99,
+		"clientId" : 1,
+		"habitacionId" : 1
+	},
+	{
+		"id" : 2,
+		"fechaDeEntrada" : "2024-11-02",
+		"fechaDeSalida" : "2024-11-03",
+		"totalDeNoches" : 1,
+		"estadoDeReserva" : "Reservado",
+		"precioTotal" : 49.99,
+		"clientId" : 3,
+		"habitacionId" : 2
+	},
+	{
+		"id" : 3,
+		"fechaDeEntrada" : "2024-12-25",
+		"fechaDeSalida" : "2025-01-02",
+		"totalDeNoches" : 8,
+		"estadoDeReserva" : "Pagado",
+		"precioTotal" : 899.99,
+		"clientId" : 2,
+		"habitacionId" : 1
+	}
+]}
