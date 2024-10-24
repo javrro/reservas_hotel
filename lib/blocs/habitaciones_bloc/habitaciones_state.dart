@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:reservas_hotel/models/habitacion.dart';
+import 'package:reservas_hotel/models/room.dart';
 
 enum HabitacionesStatus { unknown, loading, loaded }
 
@@ -10,11 +10,11 @@ class HabitacionesState extends Equatable {
   });
 
   final HabitacionesStatus status;
-  final List<Habitacion> habitaciones;
+  final List<Room> habitaciones;
 
   HabitacionesState copyWith({
     HabitacionesStatus? status,
-    List<Habitacion>? habitaciones,
+    List<Room>? habitaciones,
   }) {
     return HabitacionesState(
       status: status ?? this.status,

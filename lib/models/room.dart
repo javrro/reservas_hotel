@@ -1,9 +1,9 @@
-class Habitacion {
+class Room {
   final String id;
 
-  Habitacion(this.id);
+  Room(this.id);
 
-  Habitacion.fromJson(Map<String, dynamic> json) : id = json['id'];
+  Room.fromJson(Map<String, dynamic> json) : id = json['id'];
 
   // Map<String, dynamic> toJson() => {
   //       'name': name,
