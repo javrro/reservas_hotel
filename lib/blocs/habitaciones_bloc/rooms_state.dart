@@ -1,22 +1,22 @@
 import 'package:equatable/equatable.dart';
 import 'package:reservas_hotel/models/room.dart';
 
-enum HabitacionesStatus { unknown, loading, loaded }
+enum RoomsStatus { unknown, loading, loaded }
 
-class HabitacionesState extends Equatable {
-  const HabitacionesState({
-    this.status = HabitacionesStatus.unknown,
+class RoomsState extends Equatable {
+  const RoomsState({
+    this.status = RoomsStatus.unknown,
     this.habitaciones = const [],
   });
 
-  final HabitacionesStatus status;
+  final RoomsStatus status;
   final List<Room> habitaciones;
 
-  HabitacionesState copyWith({
-    HabitacionesStatus? status,
+  RoomsState copyWith({
+    RoomsStatus? status,
     List<Room>? habitaciones,
   }) {
-    return HabitacionesState(
+    return RoomsState(
       status: status ?? this.status,
       habitaciones: habitaciones ?? this.habitaciones,
     );
