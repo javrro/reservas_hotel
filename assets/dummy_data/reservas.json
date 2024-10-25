@@ -1,5 +1,4 @@
-{
-"Reservas": [
+[
 	{
 		"id" : 1,
 		"fechaDeEntrada" : "2024-06-11",
@@ -30,4 +29,4 @@
 		"clientId" : 2,
 		"habitacionId" : 1
 	}
-]}
+]

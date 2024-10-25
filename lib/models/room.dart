@@ -1,5 +1,5 @@
 class Room {
-  final String id;
+  final int id;
   final int numeroHabitacion;
   final String tipo;
   final String descripcion;

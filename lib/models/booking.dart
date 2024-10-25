@@ -1,5 +1,5 @@
 class Booking {
-  final String id;
+  final int id;
   final int totalDeNoches;
   final String fechaDeEntrada;
   final String fechaDeSalida;
