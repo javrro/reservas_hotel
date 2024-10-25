@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reservas_hotel/blocs/Reservas_bloc/bookings_event.dart';
-import 'package:reservas_hotel/blocs/habitaciones_bloc/rooms_bloc.dart';
-import 'package:reservas_hotel/blocs/habitaciones_bloc/rooms_event.dart';
-import 'package:reservas_hotel/blocs/reservas_bloc/bookings_bloc.dart';
-import 'package:reservas_hotel/blocs/reservas_bloc/bookings_event.dart';
+import 'package:reservas_hotel/blocs/rooms_bloc/rooms_bloc.dart';
+import 'package:reservas_hotel/blocs/rooms_bloc/rooms_event.dart';
+import 'package:reservas_hotel/blocs/bookings_bloc/bookings_bloc.dart';
+import 'package:reservas_hotel/blocs/bookings_bloc/bookings_event.dart';
 import 'package:reservas_hotel/repositories/habitaciones_repository.dart';
 import 'package:reservas_hotel/repositories/reservas_repository.dart';
 import 'package:reservas_hotel/views/habitaciones_view.dart';

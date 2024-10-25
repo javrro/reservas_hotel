@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:http/http.dart';
-import 'package:reservas_hotel/blocs/habitaciones_bloc/rooms_event.dart';
-import 'package:reservas_hotel/blocs/habitaciones_bloc/rooms_state.dart';
+import 'package:reservas_hotel/blocs/rooms_bloc/rooms_event.dart';
+import 'package:reservas_hotel/blocs/rooms_bloc/rooms_state.dart';
 import 'package:reservas_hotel/repositories/habitaciones_repository.dart';
 
 class RoomsBloc extends Bloc<RoomsEvent, RoomsState> {

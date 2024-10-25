@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reservas_hotel/blocs/reservas_bloc/bookings_event.dart';
-import 'package:reservas_hotel/blocs/reservas_bloc/bookings_state.dart';
+import 'package:reservas_hotel/blocs/bookings_bloc/bookings_event.dart';
+import 'package:reservas_hotel/blocs/bookings_bloc/bookings_state.dart';
 //import 'package:http/http.dart';
 import 'package:reservas_hotel/repositories/reservas_repository.dart';
 
