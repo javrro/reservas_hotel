@@ -21,6 +21,9 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
+        backgroundColor: Colors.blue,
+        activeColor: Colors.white,
+        inactiveColor: Colors.white60,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.search),

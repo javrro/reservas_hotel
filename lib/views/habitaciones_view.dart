@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reservas_hotel/blocs/rooms_bloc/rooms_bloc.dart';
 import 'package:reservas_hotel/blocs/rooms_bloc/rooms_state.dart';
+import 'package:reservas_hotel/views/habitacion_view.dart';
 
 class HabitacionesView extends StatelessWidget {
   const HabitacionesView({
@@ -42,99 +43,116 @@ class HabitacionesView extends StatelessWidget {
                           elevation: 2,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16.0)),
-                          child: Column(children: [
-                            ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(16),
-                                topRight: Radius.circular(16),
-                              ),
-                              child: Container(
-                                width: double.infinity,
-                                height: MediaQuery.of(context).size.height / 4,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    fit: BoxFit.fill,
-                                    image: AssetImage(
-                                        "assets/images/room${index + 1}.jpeg"),
+                          child: Material(
+                            borderRadius: BorderRadius.circular(16.0),
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(16.0),
+                              onTap: () {
+                                debugPrint("===> CLICKING CARD $index");
+                                Navigator.of(context).push(CupertinoPageRoute(
+                                    builder: (BuildContext context) {
+                                  return HabitacionView(
+                                    room: state.habitaciones[index],
+                                    index: index,
+                                  );
+                                }));
+                              },
+                              child: Column(children: [
+                                ClipRRect(
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(16),
+                                    topRight: Radius.circular(16),
+                                  ),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height:
+                                        MediaQuery.of(context).size.height / 4,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: AssetImage(
+                                            "assets/images/room${index + 1}.jpeg"),
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(16, 4, 16, 4),
+                                    child: SizedBox(
+                                      height: 100,
+                                      width: double.infinity,
+                                      child: Flex(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        direction: Axis.vertical,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              const Text("Habitación  ",
+                                                  style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w700,
+                                                  )),
+                                              Text(
+                                                  state.habitaciones[index]
+                                                      .numeroHabitacion
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w700,
+                                                  )),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Text("Tipo de habitación",
+                                                  style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w600,
+                                                  )),
+                                              Text(
+                                                  state.habitaciones[index]
+                                                      .descripcion,
+                                                  style: const TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w600,
+                                                  )),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              const Text(
+                                                "Precio por noche: ",
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                              Text(
+                                                "\$${state.habitaciones[index].precioPorNoche.toStringAsFixed(2)}",
+                                                style: const TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w900,
+                                                  color: Colors.red,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ))
+                              ]),
                             ),
-                            Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(16, 4, 16, 4),
-                                child: SizedBox(
-                                  height: 100,
-                                  width: double.infinity,
-                                  child: Flex(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    direction: Axis.vertical,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          const Text("Habitación  ",
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w700,
-                                              )),
-                                          Text(
-                                              state.habitaciones[index]
-                                                  .numeroHabitacion
-                                                  .toString(),
-                                              style: const TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w700,
-                                              )),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          const Text("Tipo de habitación",
-                                              style: TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w600,
-                                              )),
-                                          Text(
-                                              state.habitaciones[index]
-                                                  .descripcion,
-                                              style: const TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w600,
-                                              )),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          const Text(
-                                            "Precio por noche: ",
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Text(
-                                            "\$${state.habitaciones[index].precioPorNoche.toStringAsFixed(2)}",
-                                            style: const TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w900,
-                                              color: Colors.red,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ))
-                          ]),
+                          ),
                         ),
                       ),
                     );
