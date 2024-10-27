@@ -5,7 +5,8 @@
 		"tipo" : "Penhouse",
 		"precioPorNoche" : 100.00,
 		"descripcion" : "La mejor de la Ciudad",
-		"estado" : "Disponible"
+		"estado" : "Disponible",
+		"thumbnail": "room2"
 	},
 	{
 		"id" : 2,
@@ -13,7 +14,8 @@
 		"tipo" : "Normal",
 		"precioPorNoche" : 50.00,
 		"descripcion" : "Sencilla 2 camas",
-		"estado" : "No Disponible"
+		"estado" : "No Disponible",
+		"thumbnail": "room6"
 	},
 	{
 		"id" : 3,
@@ -21,6 +23,7 @@
 		"tipo" : "Normal",
 		"precioPorNoche" : 45.00,
 		"descripcion" : "Sencilla 1 cama",
-		"estado" : "Disponible"
+		"estado" : "Disponible",
+		"thumbnail": "room4"
 	}
 ]
