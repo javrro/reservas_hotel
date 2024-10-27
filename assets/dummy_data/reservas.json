@@ -7,7 +7,15 @@
 		"estadoDeReserva" : "Pagado",
 		"precioTotal" : 249.99,
 		"clientId" : 1,
-		"habitacionId" : 1
+		"habitacion": {
+			"id" : 1,
+			"numeroHabitacion" : 507,
+			"tipo" : "Penhouse",
+			"precioPorNoche" : 100.00,
+			"descripcion" : "La mejor de la Ciudad",
+			"estado" : "Disponible",
+			"thumbnail": "room2"
+		}
 	},
 	{
 		"id" : 2,
@@ -17,7 +25,15 @@
 		"estadoDeReserva" : "Reservado",
 		"precioTotal" : 49.99,
 		"clientId" : 3,
-		"habitacionId" : 2
+		"habitacion" : {
+			"id" : 2,
+			"numeroHabitacion" : 259,
+			"tipo" : "Normal",
+			"precioPorNoche" : 50.00,
+			"descripcion" : "Sencilla 2 camas",
+			"estado" : "No Disponible",
+			"thumbnail": "room6"
+		}
 	},
 	{
 		"id" : 3,
@@ -27,6 +43,14 @@
 		"estadoDeReserva" : "Pagado",
 		"precioTotal" : 899.99,
 		"clientId" : 2,
-		"habitacionId" : 1
+		"habitacion": {
+			"id" : 1,
+			"numeroHabitacion" : 507,
+			"tipo" : "Penhouse",
+			"precioPorNoche" : 100.00,
+			"descripcion" : "La mejor de la Ciudad",
+			"estado" : "Disponible",
+			"thumbnail": "room2"
+		}
 	}
 ]

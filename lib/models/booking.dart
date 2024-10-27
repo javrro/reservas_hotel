@@ -1,3 +1,5 @@
+import 'package:reservas_hotel/models/room.dart';
+
 class Booking {
   final int id;
   final int totalDeNoches;
@@ -6,10 +8,10 @@ class Booking {
   final String estadoDeReserva;
   final double precioTotal;
   final int clientId;
-  final int habitacionId;
+  final Room habitacion;
 
   Booking(this.id, this.totalDeNoches, this.fechaDeEntrada, this.fechaDeSalida,
-      this.estadoDeReserva, this.precioTotal, this.clientId, this.habitacionId);
+      this.estadoDeReserva, this.precioTotal, this.clientId, this.habitacion);
 
   Booking.fromJson(Map<String, dynamic> json)
       : id = json['id'],
@@ -19,7 +21,7 @@ class Booking {
         estadoDeReserva = json['estadoDeReserva'],
         precioTotal = json['precioTotal'],
         clientId = json['clientId'],
-        habitacionId = json['habitacionId'];
+        habitacion = Room.fromJson(json['habitacion']);
 
   // Map<String, dynamic> toJson() => {
   //       'name': name,
