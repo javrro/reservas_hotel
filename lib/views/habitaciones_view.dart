@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reservas_hotel/blocs/rooms_bloc/rooms_bloc.dart';
 import 'package:reservas_hotel/blocs/rooms_bloc/rooms_state.dart';
 import 'package:reservas_hotel/views/habitacion_view.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class HabitacionesView extends StatelessWidget {
   const HabitacionesView({
@@ -162,10 +163,45 @@ class HabitacionesView extends StatelessWidget {
         );
       }
 
-      return const SafeArea(
-          child: Center(
-        child: CircularProgressIndicator(),
-      ));
+      return SafeArea(
+        child: CustomScrollView(slivers: [
+          const CupertinoSliverNavigationBar(
+            backgroundColor: Colors.blue,
+            largeTitle: Text(
+              "Habitaciones",
+              style: TextStyle(color: Colors.white),
+            ),
+            trailing: Padding(
+              padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
+              child: CupertinoSearchTextField(
+                backgroundColor: Colors.white,
+                placeholder: "Search",
+              ),
+            ),
+          ),
+          Skeletonizer.sliver(
+            child: SliverList.builder(
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                return const SizedBox(
+                  width: double.maxFinite,
+                  height: 200,
+                  child: Card(
+                    child: ListTile(
+                      title: Text('Item number as titleItem number as titleItem number as titleItem number as titleItem number as title'),
+                      subtitle: Text('Subtitle hereSubtitle herSubtitle herSubtitle herSubtitle herSubtitle herSubtitle herSubtitle her'),
+                      leading: Icon(
+                        Icons.ac_unit,
+                        size: 64,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ]),
+      );
     }));
   }
 }
