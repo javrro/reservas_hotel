@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reservas_hotel/blocs/bookings_bloc/bookings_bloc.dart';
+import 'package:reservas_hotel/blocs/bookings_bloc/bookings_event.dart';
 import 'package:reservas_hotel/blocs/bookings_bloc/bookings_state.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -14,6 +15,9 @@ class ReservasView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(child:
         BlocBuilder<BookingsBloc, BookingsState>(builder: (context, state) {
+      if (state.status == BookingsStatus.posted) {
+        BlocProvider.of<BookingsBloc>(context).add(BookingsFetch());
+      }
       if (state.status == BookingsStatus.loaded) {
         return SafeArea(
           child: CustomScrollView(
@@ -24,6 +28,12 @@ class ReservasView extends StatelessWidget {
                   "Reservas",
                   style: TextStyle(color: Colors.white),
                 ),
+              ),
+              CupertinoSliverRefreshControl(
+                onRefresh: () async {
+                  debugPrint("====> Refreshing...");
+                  BlocProvider.of<BookingsBloc>(context).add(BookingsFetch());
+                },
               ),
               SliverList.builder(
                   itemCount: state.reservas.length,
@@ -58,7 +68,7 @@ class ReservasView extends StatelessWidget {
                                         image: DecorationImage(
                                           fit: BoxFit.fill,
                                           image: AssetImage(
-                                              "assets/images/room${index + 1}.jpeg"),
+                                              "assets/images/room${state.reservas[index].miniatura}.jpeg"),
                                         ),
                                       ),
                                     ),
@@ -72,8 +82,7 @@ class ReservasView extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            state.reservas[index].habitacion
-                                                .descripcion,
+                                            state.reservas[index].descripcion!,
                                             textAlign: TextAlign.left,
                                             style: const TextStyle(
                                               fontSize: 14,
@@ -149,15 +158,8 @@ class ReservasView extends StatelessWidget {
           const CupertinoSliverNavigationBar(
             backgroundColor: Colors.blue,
             largeTitle: Text(
-              "Habitaciones",
+              "Reservas",
               style: TextStyle(color: Colors.white),
-            ),
-            trailing: Padding(
-              padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
-              child: CupertinoSearchTextField(
-                backgroundColor: Colors.white,
-                placeholder: "Search",
-              ),
             ),
           ),
           Skeletonizer.sliver(
@@ -169,10 +171,8 @@ class ReservasView extends StatelessWidget {
                   height: 120,
                   child: Card(
                     child: ListTile(
-                      title: Text(
-                          'Item number as titleI'),
-                      subtitle: Text(
-                          'Subtitle here'),
+                      title: Text('Item number as titleI'),
+                      subtitle: Text('Subtitle here'),
                       leading: Icon(
                         Icons.ac_unit,
                         size: 64,

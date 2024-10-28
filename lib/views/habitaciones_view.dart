@@ -1,15 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reservas_hotel/blocs/bookings_bloc/bookings_bloc.dart';
 import 'package:reservas_hotel/blocs/rooms_bloc/rooms_bloc.dart';
 import 'package:reservas_hotel/blocs/rooms_bloc/rooms_state.dart';
+import 'package:reservas_hotel/repositories/reservas_repository.dart';
 import 'package:reservas_hotel/views/habitacion_view.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class HabitacionesView extends StatelessWidget {
-  const HabitacionesView({
+  const HabitacionesView(
+    this.reservasRepository, {
     super.key,
   });
+
+  final ReservasRepository reservasRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +57,14 @@ class HabitacionesView extends StatelessWidget {
                                 debugPrint("===> CLICKING CARD $index");
                                 Navigator.of(context).push(CupertinoPageRoute(
                                     builder: (BuildContext context) {
-                                  return HabitacionView(
-                                    room: state.habitaciones[index],
-                                    index: index,
+                                  return BlocProvider(
+                                    create: (context) {
+                                      return BookingsBloc(reservasRepository);
+                                    },
+                                    child: HabitacionView(
+                                      room: state.habitaciones[index],
+                                      index: index,
+                                    ),
                                   );
                                 }));
                               },
@@ -72,7 +82,7 @@ class HabitacionesView extends StatelessWidget {
                                       image: DecorationImage(
                                         fit: BoxFit.fill,
                                         image: AssetImage(
-                                            "assets/images/room${index + 1}.jpeg"),
+                                            "assets/images/room${state.habitaciones[index].miniatura}.jpeg"),
                                       ),
                                     ),
                                   ),
@@ -188,8 +198,10 @@ class HabitacionesView extends StatelessWidget {
                   height: 200,
                   child: Card(
                     child: ListTile(
-                      title: Text('Item number as titleItem number as titleItem number as titleItem number as titleItem number as title'),
-                      subtitle: Text('Subtitle hereSubtitle herSubtitle herSubtitle herSubtitle herSubtitle herSubtitle herSubtitle her'),
+                      title: Text(
+                          'Item number as titleItem number as titleItem number as titleItem number as titleItem number as title'),
+                      subtitle: Text(
+                          'Subtitle hereSubtitle herSubtitle herSubtitle herSubtitle herSubtitle herSubtitle herSubtitle her'),
                       leading: Icon(
                         Icons.ac_unit,
                         size: 64,

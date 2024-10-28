@@ -6,7 +6,7 @@
 		"precioPorNoche" : 100.00,
 		"descripcion" : "La mejor de la Ciudad",
 		"estado" : "Disponible",
-		"thumbnail": "room2"
+		"thumbnail": 2
 	},
 	{
 		"id" : 2,
@@ -15,7 +15,7 @@
 		"precioPorNoche" : 50.00,
 		"descripcion" : "Sencilla 2 camas",
 		"estado" : "No Disponible",
-		"thumbnail": "room6"
+		"thumbnail": 6
 	},
 	{
 		"id" : 3,
@@ -24,6 +24,6 @@
 		"precioPorNoche" : 45.00,
 		"descripcion" : "Sencilla 1 cama",
 		"estado" : "Disponible",
-		"thumbnail": "room4"
+		"thumbnail": 4
 	}
 ]

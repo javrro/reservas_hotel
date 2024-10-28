@@ -5,17 +5,28 @@ class Room {
   final String descripcion;
   final String estado;
   final double precioPorNoche;
+  final int miniatura;
 
   Room(this.id, this.numeroHabitacion, this.tipo, this.descripcion, this.estado,
-      this.precioPorNoche);
+      this.precioPorNoche, this.miniatura);
 
-  Room.fromJson(Map<String, dynamic> json)
+  Room.fromJsonDummy(Map<String, dynamic> json)
       : id = json['id'],
         numeroHabitacion = json['numeroHabitacion'],
         tipo = json['tipo'],
         descripcion = json['descripcion'],
         estado = json['estado'],
-        precioPorNoche = json['precioPorNoche'];
+        precioPorNoche = json['precioPorNoche'],
+        miniatura = json['thumbnail'];
+
+  Room.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        numeroHabitacion = json['numero_habitacion'],
+        tipo = json['tipo'],
+        descripcion = json['descripcion'],
+        estado = json['estado'],
+        precioPorNoche = json['precio_por_noche'],
+        miniatura = json['miniatura'];
 
   // Map<String, dynamic> toJson() => {
   //       'name': name,
