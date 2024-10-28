@@ -41,7 +41,7 @@ class HotelDatabase {
 
     await db.execute('''
       CREATE TABLE $tableHabitaciones (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_habitacion INTEGER PRIMARY KEY AUTOINCREMENT,
         numero_habitacion INTEGER NOT NULL UNIQUE,
         tipo TEXT NOT NULL,
         precio_por_noche REAL NOT NULL,
@@ -53,14 +53,14 @@ class HotelDatabase {
 
     await db.execute('''
       CREATE TABLE $tableReservas (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_reserva INTEGER PRIMARY KEY AUTOINCREMENT,
         habitacion_id INTEGER NOT NULL,
         fecha_entrada TEXT DEFAULT '',
         fecha_salida TEXT DEFAULT '',
         estado TEXT DEFAULT 'reservada',
         total_noches INTEGER NOT NULL,
         precio_total REAL NOT NULL,
-        FOREIGN KEY (habitacion_id) REFERENCES $tableHabitaciones (id)
+        FOREIGN KEY (habitacion_id) REFERENCES $tableHabitaciones (id_habitacion)
       )
     ''');
 
@@ -165,7 +165,7 @@ class HotelDatabase {
     //return await db.query(tableReservas);
     return await db.rawQuery('''
       SELECT * FROM $tableReservas
-      LEFT JOIN $tableHabitaciones ON $tableReservas.habitacion_id = $tableHabitaciones.id
+      LEFT JOIN $tableHabitaciones ON $tableReservas.habitacion_id = $tableHabitaciones.id_habitacion
     ''');
   }
 
@@ -206,6 +206,6 @@ class HotelDatabase {
   // Eliminar una reserva por su id
   Future<int> eliminarReserva(int id) async {
     Database db = await instance.database;
-    return await db.delete(tableReservas, where: 'id = ?', whereArgs: [id]);
+    return await db.delete(tableReservas, where: 'id_reserva = ?', whereArgs: [id]);
   }
 }

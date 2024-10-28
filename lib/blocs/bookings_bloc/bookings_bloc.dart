@@ -9,6 +9,7 @@ class BookingsBloc extends Bloc<BookingsEvent, BookingsState> {
   BookingsBloc(this._reservasRepository) : super(const BookingsState()) {
     on<BookingsFetch>(_onReservasFetched);
     on<BookingsPost>(_onReservasPost);
+    on<BookingsDelete>(_onReservaDelete);
   }
 
   final ReservasRepository _reservasRepository;
@@ -16,7 +17,9 @@ class BookingsBloc extends Bloc<BookingsEvent, BookingsState> {
   Future<void> _onReservasFetched(
       BookingsFetch event, Emitter<BookingsState> emit) async {
     if (state.status == BookingsStatus.unknown ||
-        state.status == BookingsStatus.loaded) {
+        state.status == BookingsStatus.loaded ||
+        state.status == BookingsStatus.deleted
+        ) {
       debugPrint("===> RESERVAS STATUS UNKNOWN... FETCHING...");
       emit(state.copyWith(
         status: BookingsStatus.loading,
@@ -40,6 +43,19 @@ class BookingsBloc extends Bloc<BookingsEvent, BookingsState> {
     debugPrint("===> RESERVAS POSTED... EMMITING...");
     return emit(state.copyWith(
       status: BookingsStatus.unknown,
+    ));
+  }
+
+  Future<void> _onReservaDelete(
+      BookingsDelete event, Emitter<BookingsState> emit) async {
+    debugPrint("===> DELETING RESERVA... ${event.bookingId}");
+    emit(state.copyWith(
+      status: BookingsStatus.deleting,
+    ));
+    await _reservasRepository.deleteReservas(event.bookingId);
+    debugPrint("===> RESERVA DELETED... EMMITING...");
+    return emit(state.copyWith(
+      status: BookingsStatus.deleted,
     ));
   }
 }

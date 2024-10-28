@@ -20,7 +20,7 @@ class Room {
         miniatura = json['thumbnail'];
 
   Room.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
+      : id = json['id_habitacion'],
         numeroHabitacion = json['numero_habitacion'],
         tipo = json['tipo'],
         descripcion = json['descripcion'],

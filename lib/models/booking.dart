@@ -32,13 +32,13 @@ class Booking {
         habitacion = Room.fromJsonDummy(json['habitacion']);
 
   Booking.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
+      : id = json['id_reserva'],
         fechaDeEntrada = json['fecha_entrada'],
         fechaDeSalida = json['fecha_salida'],
         estadoDeReserva = json['estado'],
         totalDeNoches = json['total_noches'],
         precioTotal = json['precio_total'],
-        habitacionId = json['id'],
+        habitacionId = json['habitacion_id'],
         numeroHabitacion = json['numero_habitacion'],
         tipo = json['tipo'],
         descripcion = json['descripcion'],

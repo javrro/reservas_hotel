@@ -15,7 +15,8 @@ class ReservasView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(child:
         BlocBuilder<BookingsBloc, BookingsState>(builder: (context, state) {
-      if (state.status == BookingsStatus.posted) {
+      if (state.status == BookingsStatus.posted ||
+          state.status == BookingsStatus.deleted) {
         BlocProvider.of<BookingsBloc>(context).add(BookingsFetch());
       }
       if (state.status == BookingsStatus.loaded) {
@@ -136,10 +137,19 @@ class ReservasView extends StatelessWidget {
                                   );
                                 },
                                 menuChildren: List<MenuItemButton>.generate(
-                                  3,
+                                  1,
                                   (int index) => MenuItemButton(
-                                    onPressed: () {},
-                                    child: Text('Item ${index + 1}'),
+                                    onPressed: () {
+                                      BlocProvider.of<BookingsBloc>(context)
+                                          .add(BookingsDelete(
+                                              state.reservas[index].id!));
+                                    },
+                                    child: const Text('BORRAR',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.w900,
+                                        )),
                                   ),
                                 ),
                               ),
@@ -164,7 +174,7 @@ class ReservasView extends StatelessWidget {
           ),
           Skeletonizer.sliver(
             child: SliverList.builder(
-              itemCount: 6,
+              itemCount: 4,
               itemBuilder: (context, index) {
                 return const SizedBox(
                   width: double.maxFinite,

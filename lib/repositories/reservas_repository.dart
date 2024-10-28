@@ -19,6 +19,10 @@ class ReservasRepository {
     if (bookigns.isNotEmpty) {
       for (int i = 0; i < bookigns.length; i++) {
         debugPrint(bookigns[i].keys.toList().toString());
+        debugPrint(bookigns[i]["id_reserva"].toString());
+        debugPrint(bookigns[i]["habitacion_id"].toString());
+        debugPrint(bookigns[i]["miniatura"].toString());
+        debugPrint(bookigns[i]["estado"].toString());
       }
     }
     if (bookigns.isNotEmpty) {
@@ -36,5 +40,11 @@ class ReservasRepository {
     await Future.delayed(const Duration(seconds: 2));
 
     await hotelDatabase.insertarReserva(booking.toJson());
+  }
+
+  Future<void> deleteReservas(int bookingId) async {
+    await Future.delayed(const Duration(seconds: 1));
+
+    await hotelDatabase.eliminarReserva(bookingId);
   }
 }

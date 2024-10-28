@@ -3,7 +3,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:reservas_hotel/models/booking.dart';
 
-enum BookingsStatus { unknown, loading, loaded, posting, posted }
+enum BookingsStatus { unknown, loading, loaded, posting, posted, deleting, deleted }
 
 class BookingsState extends Equatable {
   const BookingsState({

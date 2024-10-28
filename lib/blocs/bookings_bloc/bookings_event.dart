@@ -17,3 +17,11 @@ class BookingsPost extends BookingsEvent {
   @override
   List<Object> get props => [booking];
 }
+
+class BookingsDelete extends BookingsEvent {
+  const BookingsDelete(this.bookingId);
+  final int bookingId;
+
+  @override
+  List<Object> get props => [bookingId];
+}
