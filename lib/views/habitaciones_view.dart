@@ -25,7 +25,7 @@ class HabitacionesView extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               const CupertinoSliverNavigationBar(
-                backgroundColor: Colors.blue,
+                backgroundColor:  Color.fromARGB(190, 49, 61, 71),
                 largeTitle: Text(
                   "Habitaciones",
                   style: TextStyle(color: Colors.white),
@@ -176,7 +176,7 @@ class HabitacionesView extends StatelessWidget {
       return SafeArea(
         child: CustomScrollView(slivers: [
           const CupertinoSliverNavigationBar(
-            backgroundColor: Colors.blue,
+            backgroundColor:  Color.fromARGB(190, 49, 61, 71),
             largeTitle: Text(
               "Habitaciones",
               style: TextStyle(color: Colors.white),

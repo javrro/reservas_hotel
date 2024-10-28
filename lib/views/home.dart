@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color.fromARGB(190, 49, 61, 71),
         activeColor: Colors.white,
         inactiveColor: Colors.white60,
         items: const [

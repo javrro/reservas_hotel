@@ -89,7 +89,7 @@ class HabitacionView extends StatelessWidget {
                                 fontWeight: FontWeight.w700,
                               )),
                           Text(
-                            "Vie, 15 Oct",
+                            "Lun, 28 Oct",
                             style: TextStyle(
                               color: Colors.indigo,
                               fontSize: 20,
@@ -107,7 +107,7 @@ class HabitacionView extends StatelessWidget {
                                 fontWeight: FontWeight.w700,
                               )),
                           Text(
-                            "Dom, 27 Oct",
+                            "Mar, 29 Oct",
                             style: TextStyle(
                               color: Colors.indigo,
                               fontSize: 20,
@@ -223,7 +223,7 @@ class HabitacionView extends StatelessWidget {
                             height: 50,
                             color: Colors.indigo,
                             child: const Center(
-                              child: CircularProgressIndicator(),
+                              child: CircularProgressIndicator(color: Color.fromARGB(190, 49, 61, 71),),
                             ),
                           ))
                       : CupertinoButton(

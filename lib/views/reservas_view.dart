@@ -24,7 +24,7 @@ class ReservasView extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               const CupertinoSliverNavigationBar(
-                backgroundColor: Colors.blue,
+                backgroundColor:  Color.fromARGB(190, 49, 61, 71),
                 largeTitle: Text(
                   "Reservas",
                   style: TextStyle(color: Colors.white),
@@ -94,7 +94,7 @@ class ReservasView extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text("Vie, 15 Oct - Dom, 27 Oct",
+                                              Text("Lun, 28 Oct - Mar, 29 Oct",
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontSize: 12,
@@ -166,7 +166,7 @@ class ReservasView extends StatelessWidget {
       return SafeArea(
         child: CustomScrollView(slivers: [
           const CupertinoSliverNavigationBar(
-            backgroundColor: Colors.blue,
+            backgroundColor:  Color.fromARGB(190, 49, 61, 71),
             largeTitle: Text(
               "Reservas",
               style: TextStyle(color: Colors.white),
